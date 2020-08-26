@@ -1,0 +1,52 @@
+﻿<Window x:Class="WPFListItemAccessibleNames.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFListItemAccessibleNames"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="20">
+            <!-- TODO: Localize all this. -->
+            <TextBlock Name="BirdsListLabel" Text="Birds" />
+            <ListBox Name="BirdList" AutomationProperties.LabeledBy="{Binding ElementName=BirdsListLabel}">
+                <!-- Build up the AutomationProperties.Name property that will get exposed as the UI Automation (UIA) Name property 
+                     which will be announced by screen readers when keyboard focus moves to an item in the list. -->
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="AutomationProperties.Name">
+                            <Setter.Value>
+                                <!-- In this demo code, the AutomationProperties.Name gets built up from multiple properties 
+                                     on the Bird class. If only one property is used, then it would not be necessary to bind
+                                     using a MultiBinding here. -->
+                                <MultiBinding Converter="{StaticResource BirdItemAutomationPropertiesNameConverter}">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="Habitat"/>
+                                    <Binding Path="Voice"/>
+                                </MultiBinding>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Name}" Margin="0 0 20 0"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Habitat}" />
+                            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Voice}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>        
+    </Grid>
+</Window>

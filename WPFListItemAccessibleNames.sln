@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFListItemAccessibleNames", "WPFListItemAccessibleNames\WPFListItemAccessibleNames.csproj", "{8946B870-49B0-485A-8BB4-5386FC596FB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8946B870-49B0-485A-8BB4-5386FC596FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8946B870-49B0-485A-8BB4-5386FC596FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8946B870-49B0-485A-8BB4-5386FC596FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8946B870-49B0-485A-8BB4-5386FC596FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9648F99-51E0-42CD-8D23-B524128B1508}
+	EndGlobalSection
+EndGlobal
